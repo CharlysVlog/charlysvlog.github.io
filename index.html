@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charly's Vlog</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Futura, sans-serif;
+            overflow: hidden;
+        }
+        .background-images {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .background-images img {
+            position: absolute;
+            opacity: 0.5;
+        }
+        .centered-text {
+            text-align: center;
+            margin: 50px 0;
+            font-family: Futura-Bold, sans-serif;
+        }
+        .featured-video {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .featured-video iframe{
+            border: 10px solid white;        
+        }
+        .video-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .video-list iframe {
+            margin: 10px;
+            flex: 1 1 calc(33.33% - 20px);
+            max-width: calc(33.33% - 20px);
+        }
+        .btn-visit {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .btn-visit a {
+            background-color: #CA3562;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: larger;
+        }
+        @media (max-width: 768px) {
+            .video-list iframe {
+                flex: 1 1 calc(100% - 20px);
+                max-width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-images">
+        <!-- Add your PNG images here with random positioning and rotation -->
+        <img src="fire.png" style="top: 10%; left: 20%; transform: rotate(45deg);">
+        <img src="lightning.png" style="top: 50%; left: 70%; transform: rotate(-30deg);">
+        <img src="rocket.png" style="top: 80%; left: 30%; transform: rotate(15deg);">
+        <!-- Add more images as needed -->
+    </div>
+
+    <div class="centered-text">
+        <h1>Welcome to Charly's Vlog</h1>
+    </div>
+
+    <div class="featured-video">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RuTfqhonwbU?si=7_lQSpRe7SxMe5GK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
+    </div>
+
+    <div class="video-list" id="videoList">
+        <!-- List of YouTube videos will be appended here -->
+    </div>
+
+    <div class="btn-visit">
+        <a href="https://www.youtube.com/channel/UCo1TxAfyZMNLdhVB15IutlQ" target="_blank">Visit Charly's Vlog</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+</html>
