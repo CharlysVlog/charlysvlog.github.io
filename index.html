@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charly's Vlog</title>
+    <title>Charly's Vlog | Funniest content from the Internet</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -134,8 +134,18 @@
                 const response = await fetch('https://getchanneldata-qltkmkddgq-uc.a.run.app');
                 const data = await response.json();
 
-                const container = document.getElementById('subsCount');
-                container.innerHTML = data.subscriberCount;
+                let counts = setInterval(updated, Math.max(0, 100 - data.subscriberCount));
+                let upto = 0;
+
+                let increment = Math.round(Math.max(1, data.subscriberCount / 100));
+                function updated() {
+                    let count = document.getElementById("subsCount");
+                    count.innerHTML = upto += increment;
+                    if (upto >= data.subscriberCount) {
+                        clearInterval(counts);
+                        count.innerHTML = data.subscriberCount;
+                    }
+                }
 
                 const videoList = document.getElementById("videoList");
                 videoList.innerHTML = `
