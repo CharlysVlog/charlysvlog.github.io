@@ -111,7 +111,7 @@
     </div>
 
     <span class="subscribers">
-        <h2><span class="subs">0</span> Subsribers</h2>
+        <h2><span class="subs" id="subsCount">0</span> Subscribers</h2>
     </span>
 
     <div class="btn-visit">
@@ -127,30 +127,16 @@
         <div class="video-list" id="videoList">
             <!-- List of YouTube videos will be appended here -->
         <!-- </div> -->
-        <div id="youtubeData"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         async function fetchYouTubeData() {
-            const response = await fetch('https://getyoutubedata-qltkmkddgq-uc.a.run.app');
+            const response = await fetch('https://getchanneldata-qltkmkddgq-uc.a.run.app');
             const data = await response.json();
 
-            const container = document.getElementById('youtubeData');
-            container.innerHTML = `
-                    <h1>Subscriber Count: ${data.subscriberCount}</h1>
-                    <h2>Popular Videos:</h2>
-                    <ul>
-                        ${data.popularVideos.map(video => `
-                            <li>
-                                <h3>${video.title}</h3>
-                                <p>${video.description}</p>
-                                <img src="${video.thumbnail}" alt="${video.title}">
-                                <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">Watch Video</a>
-                            </li>
-                        `).join('')}
-                    </ul>
-                `;
+            const container = document.getElementById('subsCount');
+            container.innerHTML = data.subscriberCount;
         }
 
         fetchYouTubeData();
